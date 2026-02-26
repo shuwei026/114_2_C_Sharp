@@ -1,0 +1,274 @@
+﻿namespace Review_Q1
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            titleLabel = new Label();
+            computerLabel = new Label();
+            playerLabel = new Label();
+            resultLabel = new Label();
+            statisticsLabel = new Label();
+            computerScoreLabel = new Label();
+            playerScoreLabel = new Label();
+            drawScoreLabel = new Label();
+            computerPictureBox = new PictureBox();
+            playerPictureBox = new PictureBox();
+            stoneButton = new Button();
+            paperButton = new Button();
+            scissorsButton = new Button();
+            resetButton = new Button();
+            exitButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)computerPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)playerPictureBox).BeginInit();
+            SuspendLayout();
+            // 
+            // titleLabel
+            // 
+            titleLabel.AutoSize = true;
+            titleLabel.Font = new Font("微軟正黑體", 18F, FontStyle.Bold);
+            titleLabel.Location = new Point(393, 15);
+            titleLabel.Margin = new Padding(5, 0, 5, 0);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(344, 46);
+            titleLabel.TabIndex = 0;
+            titleLabel.Text = "石頭、布、剪刀遊戲";
+            titleLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // computerLabel
+            // 
+            computerLabel.AutoSize = true;
+            computerLabel.Font = new Font("微軟正黑體", 12F, FontStyle.Bold);
+            computerLabel.Location = new Point(126, 92);
+            computerLabel.Margin = new Padding(5, 0, 5, 0);
+            computerLabel.Name = "computerLabel";
+            computerLabel.Size = new Size(110, 31);
+            computerLabel.TabIndex = 1;
+            computerLabel.Text = "電腦出拳";
+            // 
+            // playerLabel
+            // 
+            playerLabel.AutoSize = true;
+            playerLabel.Font = new Font("微軟正黑體", 12F, FontStyle.Bold);
+            playerLabel.Location = new Point(1009, 92);
+            playerLabel.Margin = new Padding(5, 0, 5, 0);
+            playerLabel.Name = "playerLabel";
+            playerLabel.Size = new Size(110, 31);
+            playerLabel.TabIndex = 2;
+            playerLabel.Text = "玩家出拳";
+            // 
+            // resultLabel
+            // 
+            resultLabel.AutoSize = true;
+            resultLabel.Font = new Font("微軟正黑體", 14F, FontStyle.Bold);
+            resultLabel.ForeColor = Color.Red;
+            resultLabel.Location = new Point(471, 199);
+            resultLabel.Margin = new Padding(5, 0, 5, 0);
+            resultLabel.Name = "resultLabel";
+            resultLabel.Size = new Size(267, 36);
+            resultLabel.TabIndex = 5;
+            resultLabel.Text = "請選擇你的出拳方式";
+            resultLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // statisticsLabel
+            // 
+            statisticsLabel.AutoSize = true;
+            statisticsLabel.Font = new Font("微軟正黑體", 11F, FontStyle.Bold);
+            statisticsLabel.Location = new Point(314, 521);
+            statisticsLabel.Margin = new Padding(5, 0, 5, 0);
+            statisticsLabel.Name = "statisticsLabel";
+            statisticsLabel.Size = new Size(100, 28);
+            statisticsLabel.TabIndex = 9;
+            statisticsLabel.Text = "戰績統計";
+            // 
+            // computerScoreLabel
+            // 
+            computerScoreLabel.AutoSize = true;
+            computerScoreLabel.Font = new Font("微軟正黑體", 11F);
+            computerScoreLabel.Location = new Point(314, 560);
+            computerScoreLabel.Margin = new Padding(5, 0, 5, 0);
+            computerScoreLabel.Name = "computerScoreLabel";
+            computerScoreLabel.Size = new Size(157, 28);
+            computerScoreLabel.TabIndex = 10;
+            computerScoreLabel.Text = "電腦勝場數：0";
+            // 
+            // playerScoreLabel
+            // 
+            playerScoreLabel.AutoSize = true;
+            playerScoreLabel.Font = new Font("微軟正黑體", 11F);
+            playerScoreLabel.Location = new Point(597, 560);
+            playerScoreLabel.Margin = new Padding(5, 0, 5, 0);
+            playerScoreLabel.Name = "playerScoreLabel";
+            playerScoreLabel.Size = new Size(157, 28);
+            playerScoreLabel.TabIndex = 11;
+            playerScoreLabel.Text = "玩家勝場數：0";
+            // 
+            // drawScoreLabel
+            // 
+            drawScoreLabel.AutoSize = true;
+            drawScoreLabel.Font = new Font("微軟正黑體", 11F);
+            drawScoreLabel.Location = new Point(880, 560);
+            drawScoreLabel.Margin = new Padding(5, 0, 5, 0);
+            drawScoreLabel.Name = "drawScoreLabel";
+            drawScoreLabel.Size = new Size(135, 28);
+            drawScoreLabel.TabIndex = 12;
+            drawScoreLabel.Text = "平手次數：0";
+            // 
+            // computerPictureBox
+            // 
+            computerPictureBox.BackColor = Color.LightGray;
+            computerPictureBox.BorderStyle = BorderStyle.FixedSingle;
+            computerPictureBox.Location = new Point(79, 138);
+            computerPictureBox.Margin = new Padding(5, 5, 5, 5);
+            computerPictureBox.Name = "computerPictureBox";
+            computerPictureBox.Size = new Size(235, 229);
+            computerPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            computerPictureBox.TabIndex = 3;
+            computerPictureBox.TabStop = false;
+            computerPictureBox.Text = "問號";
+            // 
+            // playerPictureBox
+            // 
+            playerPictureBox.BackColor = Color.LightGray;
+            playerPictureBox.BorderStyle = BorderStyle.FixedSingle;
+            playerPictureBox.Location = new Point(943, 138);
+            playerPictureBox.Margin = new Padding(5, 5, 5, 5);
+            playerPictureBox.Name = "playerPictureBox";
+            playerPictureBox.Size = new Size(235, 229);
+            playerPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            playerPictureBox.TabIndex = 4;
+            playerPictureBox.TabStop = false;
+            playerPictureBox.Text = "問號";
+            // 
+            // stoneButton
+            // 
+            stoneButton.Font = new Font("微軟正黑體", 12F);
+            stoneButton.Location = new Point(314, 429);
+            stoneButton.Margin = new Padding(5, 5, 5, 5);
+            stoneButton.Name = "stoneButton";
+            stoneButton.Size = new Size(189, 61);
+            stoneButton.TabIndex = 6;
+            stoneButton.Text = "石頭";
+            stoneButton.UseVisualStyleBackColor = true;
+            stoneButton.Click += stoneButton_Click;
+            // 
+            // paperButton
+            // 
+            paperButton.Font = new Font("微軟正黑體", 12F);
+            paperButton.Location = new Point(534, 429);
+            paperButton.Margin = new Padding(5, 5, 5, 5);
+            paperButton.Name = "paperButton";
+            paperButton.Size = new Size(189, 61);
+            paperButton.TabIndex = 7;
+            paperButton.Text = "布";
+            paperButton.UseVisualStyleBackColor = true;
+            paperButton.Click += paperButton_Click;
+            // 
+            // scissorsButton
+            // 
+            scissorsButton.Font = new Font("微軟正黑體", 12F);
+            scissorsButton.Location = new Point(754, 429);
+            scissorsButton.Margin = new Padding(5, 5, 5, 5);
+            scissorsButton.Name = "scissorsButton";
+            scissorsButton.Size = new Size(189, 61);
+            scissorsButton.TabIndex = 8;
+            scissorsButton.Text = "剪刀";
+            scissorsButton.UseVisualStyleBackColor = true;
+            scissorsButton.Click += scissorsButton_Click;
+            // 
+            // resetButton
+            // 
+            resetButton.Font = new Font("微軟正黑體", 11F);
+            resetButton.Location = new Point(440, 613);
+            resetButton.Margin = new Padding(5, 5, 5, 5);
+            resetButton.Name = "resetButton";
+            resetButton.Size = new Size(157, 54);
+            resetButton.TabIndex = 13;
+            resetButton.Text = "重新開始";
+            resetButton.UseVisualStyleBackColor = true;
+            resetButton.Click += resetButton_Click;
+            // 
+            // exitButton
+            // 
+            exitButton.Font = new Font("微軟正黑體", 11F);
+            exitButton.Location = new Point(660, 613);
+            exitButton.Margin = new Padding(5, 5, 5, 5);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(157, 54);
+            exitButton.TabIndex = 14;
+            exitButton.Text = "結束遊戲";
+            exitButton.UseVisualStyleBackColor = true;
+            exitButton.Click += exitButton_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(11F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1257, 690);
+            Controls.Add(exitButton);
+            Controls.Add(resetButton);
+            Controls.Add(drawScoreLabel);
+            Controls.Add(playerScoreLabel);
+            Controls.Add(computerScoreLabel);
+            Controls.Add(statisticsLabel);
+            Controls.Add(scissorsButton);
+            Controls.Add(paperButton);
+            Controls.Add(stoneButton);
+            Controls.Add(resultLabel);
+            Controls.Add(playerPictureBox);
+            Controls.Add(computerPictureBox);
+            Controls.Add(playerLabel);
+            Controls.Add(computerLabel);
+            Controls.Add(titleLabel);
+            Margin = new Padding(5, 5, 5, 5);
+            Name = "Form1";
+            Text = "猜拳遊戲";
+            ((System.ComponentModel.ISupportInitialize)computerPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)playerPictureBox).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label computerLabel;
+        private System.Windows.Forms.Label playerLabel;
+        private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.Label statisticsLabel;
+        private System.Windows.Forms.Label computerScoreLabel;
+        private System.Windows.Forms.Label playerScoreLabel;
+        private System.Windows.Forms.Label drawScoreLabel;
+        private System.Windows.Forms.PictureBox computerPictureBox;
+        private System.Windows.Forms.PictureBox playerPictureBox;
+        private System.Windows.Forms.Button stoneButton;
+        private System.Windows.Forms.Button paperButton;
+        private System.Windows.Forms.Button scissorsButton;
+        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button exitButton;
+    }
+}
