@@ -1,0 +1,77 @@
+﻿namespace Review_q2_1
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // Controls
+        private System.Windows.Forms.GroupBox groupBoxOil;
+        private System.Windows.Forms.CheckBox chkChangeOil;
+        private System.Windows.Forms.CheckBox chkLubrication;
+
+        private System.Windows.Forms.GroupBox groupBoxWash;
+        private System.Windows.Forms.CheckBox chkRadiator;
+        private System.Windows.Forms.CheckBox chkTransmission;
+
+        private System.Windows.Forms.GroupBox groupBoxOther;
+        private System.Windows.Forms.CheckBox chkInspection;
+        private System.Windows.Forms.CheckBox chkMuffler;
+        private System.Windows.Forms.CheckBox chkTireRotate;
+
+        private System.Windows.Forms.GroupBox groupBoxPartsHours;
+        private System.Windows.Forms.Label lblParts;
+        private System.Windows.Forms.TextBox txtParts;
+        private System.Windows.Forms.Label lblHours;
+        private System.Windows.Forms.NumericUpDown numHours;
+
+        private System.Windows.Forms.GroupBox groupBoxSummary;
+        private System.Windows.Forms.Label lblServiceAndLabor;
+        private System.Windows.Forms.TextBox txtServiceAndLabor;
+        private System.Windows.Forms.Label lblPartsSummary;
+        private System.Windows.Forms.TextBox txtPartsSummary;
+        private System.Windows.Forms.Label lblTax;
+        private System.Windows.Forms.TextBox txtTax;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.TextBox txtTotal;
+
+        private System.Windows.Forms.Button btnCalculate;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnClose;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+            // 
+            // Form1
+            // 
+            ClientSize = new Size(1171, 1104);
+            Name = "Form1";
+            Text = "汽車維修服務";
+            ResumeLayout(false);
+        }
+
+        #endregion
+    }
+}

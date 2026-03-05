@@ -1,0 +1,82 @@
+﻿using System;
+using System.Windows.Forms;
+
+namespace Review_q2_1
+{
+    public partial class Form1 : Form
+    {
+        // Prices
+        private const decimal PRICE_CHANGE_OIL = 780m;
+        private const decimal PRICE_LUBRICATION = 540m;
+        private const decimal PRICE_RAD_CLEAN = 900m;
+        private const decimal PRICE_TRANS_CLEAN = 2400m;
+        private const decimal PRICE_INSPECTION = 450m;
+        private const decimal PRICE_MUFFLER = 3000m;
+        private const decimal PRICE_TIRE_ROTATE = 600m;
+        private const decimal LABOR_RATE_PER_HOUR = 1400m; // assume
+        private const decimal TAX_RATE = 0.05m; // 5% tax on parts
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            decimal serviceAndLabor = 0m;
+
+            // Service charges
+            if (chkChangeOil.Checked) serviceAndLabor += PRICE_CHANGE_OIL;
+            if (chkLubrication.Checked) serviceAndLabor += PRICE_LUBRICATION;
+            if (chkRadiator.Checked) serviceAndLabor += PRICE_RAD_CLEAN;
+            if (chkTransmission.Checked) serviceAndLabor += PRICE_TRANS_CLEAN;
+            if (chkInspection.Checked) serviceAndLabor += PRICE_INSPECTION;
+            if (chkMuffler.Checked) serviceAndLabor += PRICE_MUFFLER;
+            if (chkTireRotate.Checked) serviceAndLabor += PRICE_TIRE_ROTATE;
+
+            // Labor
+            decimal labor = numHours.Value * LABOR_RATE_PER_HOUR;
+            serviceAndLabor += labor;
+
+            // Parts
+            decimal parts = 0m;
+            if (!string.IsNullOrWhiteSpace(txtParts.Text))
+            {
+                decimal.TryParse(txtParts.Text, out parts);
+            }
+
+            decimal tax = parts * TAX_RATE;
+            decimal total = serviceAndLabor + parts + tax;
+
+            txtServiceAndLabor.Text = serviceAndLabor.ToString("C0");
+            txtPartsSummary.Text = parts.ToString("C0");
+            txtTax.Text = tax.ToString("C0");
+            txtTotal.Text = total.ToString("C0");
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            // Uncheck all
+            chkChangeOil.Checked = false;
+            chkLubrication.Checked = false;
+            chkRadiator.Checked = false;
+            chkTransmission.Checked = false;
+            chkInspection.Checked = false;
+            chkMuffler.Checked = false;
+            chkTireRotate.Checked = false;
+
+            txtParts.Text = string.Empty;
+            numHours.Value = 0;
+
+            txtServiceAndLabor.Text = string.Empty;
+            txtPartsSummary.Text = string.Empty;
+            txtTax.Text = string.Empty;
+            txtTotal.Text = string.Empty;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

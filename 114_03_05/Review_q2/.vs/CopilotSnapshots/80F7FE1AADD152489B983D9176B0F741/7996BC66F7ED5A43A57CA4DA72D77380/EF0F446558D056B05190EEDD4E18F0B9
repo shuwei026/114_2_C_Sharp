@@ -1,0 +1,92 @@
+﻿using System;
+using System.Globalization;
+using System.Windows.Forms;
+
+namespace Review_q2_1
+{
+    public partial class Form1 : Form
+    {
+        // Prices
+        private const decimal PRICE_CHANGE_OIL = 780m;
+        private const decimal PRICE_LUBRICATION = 540m;
+        private const decimal PRICE_RAD_CLEAN = 900m;
+        private const decimal PRICE_TRANS_CLEAN = 2400m;
+        private const decimal PRICE_INSPECTION = 450m;
+        private const decimal PRICE_MUFFLER = 3000m;
+        private const decimal PRICE_TIRE_ROTATE = 600m;
+        private const decimal LABOR_RATE_PER_HOUR = 1400m; // fixed hourly rate (NT$)
+        private const decimal TAX_RATE = 0.06m; // 6% tax on parts
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            decimal serviceAndLabor = 0m;
+
+            // Service charges (selected services)
+            if (chkChangeOil.Checked) serviceAndLabor += PRICE_CHANGE_OIL;
+            if (chkLubrication.Checked) serviceAndLabor += PRICE_LUBRICATION;
+            if (chkRadiator.Checked) serviceAndLabor += PRICE_RAD_CLEAN;
+            if (chkTransmission.Checked) serviceAndLabor += PRICE_TRANS_CLEAN;
+            if (chkInspection.Checked) serviceAndLabor += PRICE_INSPECTION;
+            if (chkMuffler.Checked) serviceAndLabor += PRICE_MUFFLER;
+            if (chkTireRotate.Checked) serviceAndLabor += PRICE_TIRE_ROTATE;
+
+            // Labor (hours * fixed hourly rate)
+            decimal labor = numHours.Value * LABOR_RATE_PER_HOUR;
+            serviceAndLabor += labor;
+
+            // Parts: allow user input in NT$ (validate)
+            decimal parts = 0m;
+            if (!string.IsNullOrWhiteSpace(txtParts.Text))
+            {
+                // accept current culture number formats
+                if (!decimal.TryParse(txtParts.Text, NumberStyles.Number, CultureInfo.CurrentCulture, out parts) || parts < 0)
+                {
+                    MessageBox.Show("請輸入有效的零件費用（大於或等於 0）。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // Tax = parts * 6%
+            decimal tax = parts * TAX_RATE;
+
+            // Total = serviceAndLabor + parts + tax
+            decimal total = serviceAndLabor + parts + tax;
+
+            // Display as currency (NT$) without decimals
+            txtServiceAndLabor.Text = serviceAndLabor.ToString("C0", CultureInfo.CurrentCulture);
+            txtPartsSummary.Text = parts.ToString("C0", CultureInfo.CurrentCulture);
+            txtTax.Text = tax.ToString("C0", CultureInfo.CurrentCulture);
+            txtTotal.Text = total.ToString("C0", CultureInfo.CurrentCulture);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            // Uncheck all
+            chkChangeOil.Checked = false;
+            chkLubrication.Checked = false;
+            chkRadiator.Checked = false;
+            chkTransmission.Checked = false;
+            chkInspection.Checked = false;
+            chkMuffler.Checked = false;
+            chkTireRotate.Checked = false;
+
+            txtParts.Text = string.Empty;
+            numHours.Value = 0;
+
+            txtServiceAndLabor.Text = string.Empty;
+            txtPartsSummary.Text = string.Empty;
+            txtTax.Text = string.Empty;
+            txtTotal.Text = string.Empty;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
