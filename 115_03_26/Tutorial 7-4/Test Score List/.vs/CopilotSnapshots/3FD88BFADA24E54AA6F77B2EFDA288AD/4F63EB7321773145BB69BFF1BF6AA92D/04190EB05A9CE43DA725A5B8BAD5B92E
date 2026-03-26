@@ -1,0 +1,185 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Test_Score_List
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        
+
+       
+
+        private void getScoresButton_Click(object sender, EventArgs e)
+        {
+            double averageScore;    // To hold the average score
+            int numAboveAverage;    // Number of above average scores
+            int numBelowAverage;    // Number of below average scores
+
+            // Create a List to hold the scores.
+            List<int> scoresList = new List<int>();
+
+            // Read the scores from the file into the List.
+            ReadScores(scoresList);
+
+            // Display the scores.
+            DisplayScores(scoresList);
+
+            // Display the average score.
+            averageScore = Average(scoresList);
+            averageLabel.Text = averageScore.ToString("n1");
+
+            // Display the number of above average scores.
+            numAboveAverage = AboveAverage(scoresList, averageScore);
+            aboveAverageLabel.Text = numAboveAverage.ToString();
+
+            // Display the number of below average scores.
+            numBelowAverage = BelowAverage(scoresList);
+            belowAverageLabel.Text = numBelowAverage.ToString();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Close the form.
+            this.Close();
+        }
+
+        // 新增：搜尋按鈕事件處理方法
+        // 功能：解析使用者在 `searchTextBox` 輸入的整數分數，於 `testScoresListBox` 中搜尋
+        // 若找到第一個符合的項目，則在 `searchResultLabel` 顯示該項目的位置（從 1 開始）
+        // 若解析失敗或找不到，則顯示「分數不存在」。
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            int searchscore;
+            int position;
+
+            if (!int.TryParse(searchTextBox.Text, out searchscore))
+            {
+                // 解析失敗，顯示不存在
+                searchResultLabel.Text = "分數不存在";
+                return;
+            }
+
+            // 在 ListBox 中搜尋第一個符合的項目
+            for (int i = 0; i < testScoresListBox.Items.Count; i++)
+            {
+                
+                if ((int)testScoresListBox.Items[i] == searchscore)
+                {
+                  
+                    {
+                        // 找到後顯示位置（使用者友善的從 1 開始編號）
+                        searchResultLabel.Text = "位置：" + (i + 1).ToString();
+                        return;
+                    }
+
+                }
+                if ((int position =testScoresListBox.indexo))
+            }
+
+            // 未找到
+            searchResultLabel.Text = "分數不存在";
+        }
+
+        // 以下為新增的方法，以修正原本缺少的方法所造成的編譯錯誤。
+
+        /// <summary>
+        /// 讀取成績檔案並將整數分數加入到傳入的 List 中。
+        /// 預設檔名為 "scores.txt"，位於應用程式啟動目錄。
+        /// 若檔案不存在或解析失敗，會顯示提示訊息，但不會拋出例外到呼叫端。
+        /// </summary>
+        /// <param name="scoresList">用來儲存讀取到的分數的 List</param>
+        private void ReadScores(List<int> scoresList)
+        {
+            if (scoresList == null) return;
+
+            string path = Path.Combine(Application.StartupPath, "scores.txt");
+            if (!File.Exists(path))
+            {
+                // 檔案不存在，通知使用者並結束讀取動作
+                MessageBox.Show("找不到成績檔案：" + path + "\n請將 scores.txt 放在應用程式目錄中。", "檔案不存在", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string[] lines = File.ReadAllLines(path);
+                foreach (var line in lines)
+                {
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    int value;
+                    if (int.TryParse(line.Trim(), out value))
+                    {
+                        scoresList.Add(value);
+                    }
+                    // 無法解析的行會被略過，不影響其他資料
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("讀取檔案時發生錯誤：" + ex.Message, "讀取錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 顯示分數於 ListBox（每行一個分數）。
+        /// </summary>
+        /// <param name="scoresList">要顯示的分數清單</param>
+        private void DisplayScores(List<int> scoresList)
+        {
+            testScoresListBox.Items.Clear();
+            if (scoresList == null) return;
+            foreach (var s in scoresList)
+            {
+                testScoresListBox.Items.Add(s.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 計算分數平均值，若清單為空回傳 0。
+        /// </summary>
+        /// <param name="scoresList">分數清單</param>
+        /// <returns>平均分數（double）</returns>
+        private double Average(List<int> scoresList)
+        {
+            if (scoresList == null || scoresList.Count == 0) return 0.0;
+            return scoresList.Average();
+        }
+
+        /// <summary>
+        /// 計算高於指定平均分數的分數數量。
+        /// </summary>
+        /// <param name="scoresList">分數清單</param>
+        /// <param name="averageScore">平均分數</param>
+        /// <returns>高於平均的項目數量</returns>
+        private int AboveAverage(List<int> scoresList, double averageScore)
+        {
+            if (scoresList == null || scoresList.Count == 0) return 0;
+            return scoresList.Count(s => s > averageScore);
+        }
+
+        /// <summary>
+        /// 計算低於平均分數的分數數量（內部會自行計算平均）。
+        /// </summary>
+        /// <param name="scoresList">分數清單</param>
+        /// <returns>低於平均的項目數量</returns>
+        private int BelowAverage(List<int> scoresList)
+        {
+            if (scoresList == null || scoresList.Count == 0) return 0;
+            double avg = Average(scoresList);
+            return scoresList.Count(s => s < avg);
+        }
+    }
+}
