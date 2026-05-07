@@ -1,0 +1,390 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        private Random rand = new Random();
+        private int n1 = 0, n2 = 0, n3 = 0;
+        private int prize = 0;
+        private int balance = 0; // initial balance
+        private int totalDeposited = 0;
+        private int totalSpins = 0;
+        private int winCount = 0;
+        private int lastWin = 0;
+        // animation timer and state
+        private System.Windows.Forms.Timer spinTimer;
+        private int spinTick = 0;
+        private int lastBet = 0;
+        private bool pb1Stopped = false;
+        private bool pb2Stopped = false;
+        private bool pb3Stopped = false;
+        private const int TICKS_STOP_PB1 = 10;
+        private const int TICKS_STOP_PB2 = 17;
+        private const int TICKS_STOP_PB3 = 24;
+
+        public Form1()
+        {
+            InitializeComponent();
+            // initialize controls
+            this.comboBox_bet.SelectedIndex = 0;
+            this.button_deposit.Click += button_deposit_Click;
+            this.button1.Click += button1_Click;
+            this.button2.Click += button2_Click;
+            this.comboBox_bet.SelectedIndexChanged += comboBox_bet_SelectedIndexChanged;
+            this.Load += Form1_Load;
+            this.FormClosing += Form1_FormClosing;
+            this.textBox_deposit.KeyPress += TextBox_deposit_KeyPress;
+
+            // timer for animation
+            spinTimer = new System.Windows.Forms.Timer();
+            spinTimer.Interval = 80;
+            spinTimer.Tick += SpinTimer_Tick;
+
+            // set initial images if available
+            // initial images set in Form1_Load
+
+            UpdateUI();
+        }
+
+        private void comboBox_bet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // don't change spin button while animation running
+            if (spinTimer != null && spinTimer.Enabled)
+                return;
+
+            UpdateSpinButtonState();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // load previous save if exists
+            LoadGame();
+
+            // set initial images if available
+            if (this.imageList1 != null && this.imageList1.Images.Count >= 3)
+            {
+                this.pictureBox1.Image = this.imageList1.Images[0];
+                this.pictureBox2.Image = this.imageList1.Images[1];
+                this.pictureBox3.Image = this.imageList1.Images[2];
+            }
+
+            UpdateUI();
+        }
+
+        private void button_deposit_Click(object sender, EventArgs e)
+        {
+            var text = this.textBox_deposit.Text.Trim();
+            if (!int.TryParse(text, out int amount) || amount <= 0)
+            {
+                MessageBox.Show("請輸入有效的存入金額（必須為正整數）", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            balance += amount;
+            totalDeposited += amount;
+            this.textBox_deposit.Clear();
+            UpdateUI();
+            UpdateSpinButtonState();
+            // save after deposit
+            SaveGame();
+        }
+
+        private void TextBox_deposit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // allow control keys (e.g., backspace) and digits only
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int bet = GetBetAmount();
+            if (bet <= 0)
+                return;
+
+            if (balance < bet)
+            {
+                MessageBox.Show("餘額不足，無法下注。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateSpinButtonState();
+                return;
+            }
+
+            // 扣款並準備動畫
+            balance -= bet;
+            lastBet = bet;
+
+            // 預先決定最終三個圖案索引（動畫開始前已決定最終結果）
+            if (this.imageList1 != null && this.imageList1.Images.Count > 0)
+            {
+                n1 = rand.Next(this.imageList1.Images.Count);
+                n2 = rand.Next(this.imageList1.Images.Count);
+                n3 = rand.Next(this.imageList1.Images.Count);
+            }
+
+            // reset animation state
+            spinTick = 0;
+            pb1Stopped = pb2Stopped = pb3Stopped = false;
+            // disable spin button during animation
+            this.button1.Enabled = false;
+            spinTimer.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 計算淨利
+            int netGain = balance - totalDeposited;
+
+            var msg = new StringBuilder();
+            msg.AppendLine($"累計存入： {totalDeposited.ToString("c")} ");
+            msg.AppendLine($"目前餘額： {balance.ToString("c")} ");
+            msg.AppendLine($"損益： {netGain.ToString("c")} ");
+            msg.AppendLine();
+            msg.AppendLine($"旋轉次數： {totalSpins} 次   中獎次數： {winCount} 次");
+
+            MessageBox.Show(msg.ToString(), "結算結果", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private int GetBetAmount()
+        {
+            if (this.comboBox_bet.SelectedItem == null)
+                return 0;
+            var s = this.comboBox_bet.SelectedItem.ToString();
+            if (s.StartsWith("$")) s = s.Substring(1);
+            if (int.TryParse(s, out int b)) return b;
+            return 0;
+        }
+
+        // 每次旋轉時呼叫，亂數決定 n1~n3 並更新圖片方塊
+        private void getImage()
+        {
+            // helper to set random images (used for visual during animation)
+            if (this.imageList1 == null || this.imageList1.Images.Count == 0)
+                return;
+
+            this.pictureBox1.Image = this.imageList1.Images[rand.Next(this.imageList1.Images.Count)];
+            this.pictureBox2.Image = this.imageList1.Images[rand.Next(this.imageList1.Images.Count)];
+            this.pictureBox3.Image = this.imageList1.Images[rand.Next(this.imageList1.Images.Count)];
+        }
+
+        private void SpinTimer_Tick(object sender, EventArgs e)
+        {
+            spinTick++;
+
+            int count = this.imageList1?.Images.Count ?? 0;
+            if (count == 0)
+            {
+                spinTimer.Stop();
+                return;
+            }
+
+            // for each picture box, if not yet stopped, show random image; if tick reached stop threshold, show final image
+            if (!pb1Stopped)
+            {
+                if (spinTick >= TICKS_STOP_PB1)
+                {
+                    this.pictureBox1.Image = this.imageList1.Images[n1];
+                    pb1Stopped = true;
+                }
+                else
+                {
+                    this.pictureBox1.Image = this.imageList1.Images[rand.Next(count)];
+                }
+            }
+
+            if (!pb2Stopped)
+            {
+                if (spinTick >= TICKS_STOP_PB2)
+                {
+                    this.pictureBox2.Image = this.imageList1.Images[n2];
+                    pb2Stopped = true;
+                }
+                else
+                {
+                    this.pictureBox2.Image = this.imageList1.Images[rand.Next(count)];
+                }
+            }
+
+            if (!pb3Stopped)
+            {
+                if (spinTick >= TICKS_STOP_PB3)
+                {
+                    this.pictureBox3.Image = this.imageList1.Images[n3];
+                    pb3Stopped = true;
+                }
+                else
+                {
+                    this.pictureBox3.Image = this.imageList1.Images[rand.Next(count)];
+                }
+            }
+
+            // stop when all stopped
+            if (pb1Stopped && pb2Stopped && pb3Stopped)
+            {
+                spinTimer.Stop();
+                // evaluate winner now that final images are shown
+                int won = checkWinner(lastBet);
+                lastWin = won;
+                totalSpins++;
+                UpdateUI();
+                // save after each round
+                SaveGame();
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveGame();
+        }
+
+        private void SaveGame()
+        {
+            try
+            {
+                var path = Path.Combine(Application.StartupPath, "savegame.txt");
+                var lines = new List<string>
+                {
+                    $"balance={balance}",
+                    $"totalDeposited={totalDeposited}",
+                    $"totalSpins={totalSpins}",
+                    $"winCount={winCount}"
+                };
+                File.WriteAllLines(path, lines, Encoding.UTF8);
+            }
+            catch
+            {
+                // ignore save errors silently
+            }
+        }
+
+        private void LoadGame()
+        {
+            try
+            {
+                var path = Path.Combine(Application.StartupPath, "savegame.txt");
+                if (!File.Exists(path))
+                    return;
+
+                var lines = File.ReadAllLines(path, Encoding.UTF8);
+                foreach (var line in lines)
+                {
+                    var parts = line.Split(new[] { '=' }, 2);
+                    if (parts.Length != 2) continue;
+                    var key = parts[0].Trim();
+                    var val = parts[1].Trim();
+                    if (key == "balance" && int.TryParse(val, out int b)) balance = b;
+                    else if (key == "totalDeposited" && int.TryParse(val, out int td)) totalDeposited = td;
+                    else if (key == "totalSpins" && int.TryParse(val, out int ts)) totalSpins = ts;
+                    else if (key == "winCount" && int.TryParse(val, out int wc)) winCount = wc;
+                }
+            }
+            catch
+            {
+                // on load error reset values to 0
+                balance = 0;
+                totalDeposited = 0;
+                totalSpins = 0;
+                winCount = 0;
+            }
+        }
+
+        // 判斷是否中獎並回傳本次獎金
+        private int checkWinner(int bet)
+        {
+            prize = 0;
+            if (n1 == n2 && n2 == n3)
+            {
+                prize = bet * 10; // 頭獎
+            }
+            else if (n1 == n2 || n1 == n3 || n2 == n3)
+            {
+                prize = bet * 2; // 普獎
+            }
+
+            if (prize > 0)
+            {
+                balance += prize;
+                winCount++;
+            }
+
+            return prize;
+        }
+
+        private void UpdateUI()
+        {
+            // 使用貨幣格式顯示餘額與本次獲得
+            this.label_balance.Text = "餘額： " + balance.ToString("c");
+            this.label_lastWin.Text = "本次獲得： " + lastWin.ToString("c");
+            // 根據變動更新其他統計
+            UpdateStats();
+            // 如果動畫正在進行中，勿重新啟用旋轉按鈕
+            if (spinTimer != null && spinTimer.Enabled)
+            {
+                this.button1.Enabled = false;
+            }
+            else
+            {
+                UpdateSpinButtonState();
+            }
+        }
+
+        private void UpdateStats()
+        {
+            this.label_totalSpins.Text = $"旋轉：{totalSpins} 次";
+            this.label_winCount.Text = $"中獎：{winCount} 次";
+            double rate = 0.0;
+            if (totalSpins > 0)
+            {
+                rate = (double)winCount / totalSpins * 100.0;
+            }
+            // 顯示到小數點一位
+            this.label_winRate.Text = $"勝率：{rate:0.0}%";
+        }
+
+        private void UpdateSpinButtonState()
+        {
+            // If animation running, keep spin disabled
+            if (spinTimer != null && spinTimer.Enabled)
+            {
+                this.button1.Enabled = false;
+                return;
+            }
+            int bet = GetBetAmount();
+            // 4.5 旋轉按鈕狀態規則：
+            // - 程式剛啟動（balance = 0）: 停用
+            // - balance < 目前下注金額: 停用
+            // - balance >= 目前下注金額: 啟用
+            if (balance == 0)
+            {
+                this.button1.Enabled = false;
+                return;
+            }
+
+            if (bet <= 0)
+            {
+                this.button1.Enabled = false;
+                return;
+            }
+
+            this.button1.Enabled = (balance >= bet);
+        }
+
+        private void labelDeposit_Click(object sender, EventArgs e)
+        {
+            // focus deposit textbox when label clicked
+            this.textBox_deposit.Focus();
+        }
+    }
+}

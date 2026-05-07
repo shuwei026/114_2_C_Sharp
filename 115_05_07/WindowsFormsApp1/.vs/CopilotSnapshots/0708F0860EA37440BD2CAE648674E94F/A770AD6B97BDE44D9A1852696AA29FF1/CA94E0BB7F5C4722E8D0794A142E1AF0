@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        private Random rnd = new Random();
+        private int balance = 100; // initial balance
+        private int totalDeposited = 0;
+        private int totalSpins = 0;
+        private int winCount = 0;
+        private int lastWin = 0;
+
+        public Form1()
+        {
+            InitializeComponent();
+            // initialize controls
+            this.comboBox_bet.SelectedIndex = 0;
+            this.button_deposit.Click += Button_deposit_Click;
+            this.button1.Click += Button1_Click;
+            this.button2.Click += Button2_Click;
+            this.comboBox_bet.SelectedIndexChanged += ComboBox_bet_SelectedIndexChanged;
+
+            // set initial images if available
+            if (this.imageList1 != null && this.imageList1.Images.Count >= 3)
+            {
+                this.pictureBox1.Image = this.imageList1.Images[0];
+                this.pictureBox2.Image = this.imageList1.Images[1];
+                this.pictureBox3.Image = this.imageList1.Images[2];
+            }
+
+            UpdateUI();
+        }
+
+        private void ComboBox_bet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateSpinButtonState();
+        }
+
+        private void Button_deposit_Click(object sender, EventArgs e)
+        {
+            var text = this.textBox_deposit.Text.Trim();
+            if (!int.TryParse(text, out int amount) || amount <= 0)
+            {
+                MessageBox.Show("請輸入有效的存入金額（必須為正整數）", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            balance += amount;
+            totalDeposited += amount;
+            this.textBox_deposit.Clear();
+            UpdateUI();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            int bet = GetSelectedBet();
+            if (bet <= 0)
+                return;
+
+            if (balance < bet)
+            {
+                MessageBox.Show("餘額不足，無法下注。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateSpinButtonState();
+                return;
+            }
+
+            // 扣款
+            balance -= bet;
+
+            // 亂數決定三個圖案索引
+            int n1 = rnd.Next(this.imageList1.Images.Count);
+            int n2 = rnd.Next(this.imageList1.Images.Count);
+            int n3 = rnd.Next(this.imageList1.Images.Count);
+
+            // 顯示圖片
+            this.pictureBox1.Image = this.imageList1.Images[n1];
+            this.pictureBox2.Image = this.imageList1.Images[n2];
+            this.pictureBox3.Image = this.imageList1.Images[n3];
+
+            // 判斷獎金
+            int multiplier = 0;
+            if (n1 == n2 && n2 == n3)
+            {
+                multiplier = 10; // 頭獎
+            }
+            else if (n1 == n2 || n1 == n3 || n2 == n3)
+            {
+                multiplier = 2; // 普獎
+            }
+
+            int prize = bet * multiplier;
+            if (prize > 0)
+            {
+                balance += prize;
+                winCount++;
+            }
+
+            lastWin = prize;
+            totalSpins++;
+
+            UpdateUI();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private int GetSelectedBet()
+        {
+            if (this.comboBox_bet.SelectedItem == null)
+                return 0;
+            var s = this.comboBox_bet.SelectedItem.ToString();
+            if (s.StartsWith("$")) s = s.Substring(1);
+            if (int.TryParse(s, out int b)) return b;
+            return 0;
+        }
+
+        private void UpdateUI()
+        {
+            this.label_balance.Text = $"餘額： NT${balance:0.00}";
+            this.label_lastWin.Text = $"本次獲得： NT${lastWin:0.00}";
+            this.label_totalSpins.Text = $"旋轉：{totalSpins}次";
+            this.label_winCount.Text = $"中獎：{winCount}次";
+            double rate = totalSpins > 0 ? (double)winCount / totalSpins * 100.0 : 0.0;
+            this.label_winRate.Text = $"勝率：{rate:0.0}%";
+            UpdateSpinButtonState();
+        }
+
+        private void UpdateSpinButtonState()
+        {
+            int bet = GetSelectedBet();
+            this.button1.Enabled = (bet > 0 && balance >= bet);
+        }
+
+        private void labelDeposit_Click(object sender, EventArgs e)
+        {
+            // focus deposit textbox when label clicked
+            this.textBox_deposit.Focus();
+        }
+    }
+}

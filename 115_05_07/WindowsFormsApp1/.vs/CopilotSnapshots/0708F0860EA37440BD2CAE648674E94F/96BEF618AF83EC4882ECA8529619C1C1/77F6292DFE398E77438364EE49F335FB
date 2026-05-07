@@ -1,0 +1,242 @@
+﻿namespace WindowsFormsApp1
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// 設計工具所需的變數。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label labelDeposit;
+        private System.Windows.Forms.TextBox textBoxDeposit;
+        private System.Windows.Forms.Button buttonDeposit;
+        private System.Windows.Forms.Label labelBalance;
+        private System.Windows.Forms.Label labelGain;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label labelBet;
+        private System.Windows.Forms.ComboBox comboBoxBet;
+        private System.Windows.Forms.Label labelSpins;
+        private System.Windows.Forms.Label labelWins;
+        private System.Windows.Forms.Label labelWinRate;
+        private System.Windows.Forms.Button buttonSpin;
+        private System.Windows.Forms.Button buttonExit;
+
+        /// <summary>
+        /// 清除任何使用中的資源。
+        /// </summary>
+        /// <param name="disposing">如果應該處置受控資源則為 true，否則為 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form 設計工具產生的程式碼
+
+        /// <summary>
+        /// 此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
+        /// 這個方法的內容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.labelDeposit = new System.Windows.Forms.Label();
+            this.textBoxDeposit = new System.Windows.Forms.TextBox();
+            this.buttonDeposit = new System.Windows.Forms.Button();
+            this.labelBalance = new System.Windows.Forms.Label();
+            this.labelGain = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.labelBet = new System.Windows.Forms.Label();
+            this.comboBoxBet = new System.Windows.Forms.ComboBox();
+            this.labelSpins = new System.Windows.Forms.Label();
+            this.labelWins = new System.Windows.Forms.Label();
+            this.labelWinRate = new System.Windows.Forms.Label();
+            this.buttonSpin = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // labelDeposit
+            // 
+            this.labelDeposit.AutoSize = true;
+            this.labelDeposit.Location = new System.Drawing.Point(20, 18);
+            this.labelDeposit.Name = "labelDeposit";
+            this.labelDeposit.Size = new System.Drawing.Size(230, 45);
+            this.labelDeposit.TabIndex = 0;
+            this.labelDeposit.Text = "存入金額： $";
+            this.labelDeposit.Click += new System.EventHandler(this.labelDeposit_Click);
+            // 
+            // textBoxDeposit
+            // 
+            this.textBoxDeposit.Location = new System.Drawing.Point(240, 15);
+            this.textBoxDeposit.Name = "textBoxDeposit";
+            this.textBoxDeposit.Size = new System.Drawing.Size(180, 55);
+            this.textBoxDeposit.TabIndex = 1;
+            // 
+            // buttonDeposit
+            // 
+            this.buttonDeposit.Location = new System.Drawing.Point(430, 12);
+            this.buttonDeposit.Name = "buttonDeposit";
+            this.buttonDeposit.Size = new System.Drawing.Size(78, 42);
+            this.buttonDeposit.TabIndex = 2;
+            this.buttonDeposit.Text = "存入";
+            this.buttonDeposit.UseVisualStyleBackColor = true;
+            // 
+            // labelBalance
+            // 
+            this.labelBalance.AutoSize = true;
+            this.labelBalance.Location = new System.Drawing.Point(20, 65);
+            this.labelBalance.Name = "labelBalance";
+            this.labelBalance.Size = new System.Drawing.Size(320, 45);
+            this.labelBalance.TabIndex = 3;
+            this.labelBalance.Text = "餘額： NT$100.00";
+            // 
+            // labelGain
+            // 
+            this.labelGain.AutoSize = true;
+            this.labelGain.Location = new System.Drawing.Point(300, 65);
+            this.labelGain.Name = "labelGain";
+            this.labelGain.Size = new System.Drawing.Size(350, 45);
+            this.labelGain.TabIndex = 4;
+            this.labelGain.Text = "本次獲得： NT$0.00";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 110);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(180, 110);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(340, 110);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            // 
+            // labelBet
+            // 
+            this.labelBet.AutoSize = true;
+            this.labelBet.Location = new System.Drawing.Point(20, 250);
+            this.labelBet.Name = "labelBet";
+            this.labelBet.Size = new System.Drawing.Size(200, 45);
+            this.labelBet.TabIndex = 8;
+            this.labelBet.Text = "下注金額：";
+            // 
+            // comboBoxBet
+            // 
+            this.comboBoxBet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBet.FormattingEnabled = true;
+            this.comboBoxBet.Items.AddRange(new object[] {
+            "$1",
+            "$5",
+            "$10"});
+            this.comboBoxBet.Location = new System.Drawing.Point(200, 246);
+            this.comboBoxBet.Name = "comboBoxBet";
+            this.comboBoxBet.Size = new System.Drawing.Size(120, 53);
+            this.comboBoxBet.TabIndex = 9;
+            // 
+            // labelSpins
+            // 
+            this.labelSpins.AutoSize = true;
+            this.labelSpins.Location = new System.Drawing.Point(20, 300);
+            this.labelSpins.Name = "labelSpins";
+            this.labelSpins.Size = new System.Drawing.Size(185, 45);
+            this.labelSpins.TabIndex = 10;
+            this.labelSpins.Text = "旋轉：0次";
+            // 
+            // labelWins
+            // 
+            this.labelWins.AutoSize = true;
+            this.labelWins.Location = new System.Drawing.Point(200, 300);
+            this.labelWins.Name = "labelWins";
+            this.labelWins.Size = new System.Drawing.Size(185, 45);
+            this.labelWins.TabIndex = 11;
+            this.labelWins.Text = "中獎：0次";
+            // 
+            // labelWinRate
+            // 
+            this.labelWinRate.AutoSize = true;
+            this.labelWinRate.Location = new System.Drawing.Point(380, 300);
+            this.labelWinRate.Name = "labelWinRate";
+            this.labelWinRate.Size = new System.Drawing.Size(210, 45);
+            this.labelWinRate.TabIndex = 12;
+            this.labelWinRate.Text = "勝率：0.0%";
+            // 
+            // buttonSpin
+            // 
+            this.buttonSpin.Location = new System.Drawing.Point(120, 350);
+            this.buttonSpin.Name = "buttonSpin";
+            this.buttonSpin.Size = new System.Drawing.Size(120, 46);
+            this.buttonSpin.TabIndex = 13;
+            this.buttonSpin.Text = "旋轉";
+            this.buttonSpin.UseVisualStyleBackColor = true;
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(300, 350);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(120, 46);
+            this.buttonExit.TabIndex = 14;
+            this.buttonExit.Text = "離開";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(530, 430);
+            this.Controls.Add(this.labelDeposit);
+            this.Controls.Add(this.textBoxDeposit);
+            this.Controls.Add(this.buttonDeposit);
+            this.Controls.Add(this.labelBalance);
+            this.Controls.Add(this.labelGain);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.labelBet);
+            this.Controls.Add(this.comboBoxBet);
+            this.Controls.Add(this.labelSpins);
+            this.Controls.Add(this.labelWins);
+            this.Controls.Add(this.labelWinRate);
+            this.Controls.Add(this.buttonSpin);
+            this.Controls.Add(this.buttonExit);
+            this.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "Form1";
+            this.Text = "吃角子老虎機";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+    }
+}
+
