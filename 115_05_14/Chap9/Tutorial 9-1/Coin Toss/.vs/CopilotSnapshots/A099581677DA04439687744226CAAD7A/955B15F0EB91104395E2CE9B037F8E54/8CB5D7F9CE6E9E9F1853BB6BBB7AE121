@@ -1,0 +1,35 @@
+﻿using System;
+
+namespace Coin_Toss
+{
+     class Coin
+    {
+        private string sideUp;
+        
+
+        public Coin()
+        {
+            sideUp = "Heads";
+        }
+
+        public void Toss()
+        {
+            Random rand = new Random();
+
+            int side = rand.Next(2);
+           if (side == 0)
+            {
+                sideUp = "Heads";
+            }
+            else
+            {
+                sideUp = "Tails";
+            }   
+        }
+
+        public string GetSideUp()
+        {
+            return sideUp;
+        }
+    }
+}
