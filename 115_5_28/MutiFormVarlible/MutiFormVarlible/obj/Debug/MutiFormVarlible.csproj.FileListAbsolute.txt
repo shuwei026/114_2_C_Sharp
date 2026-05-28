@@ -1,0 +1,11 @@
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\bin\Debug\MutiFormVarlible.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\bin\Debug\MutiFormVarlible.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\bin\Debug\MutiFormVarlible.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.MainForm.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.Properties.Resources.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.SecondForm.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\MutiFormVarlible\MutiFormVarlible\obj\Debug\MutiFormVarlible.pdb
