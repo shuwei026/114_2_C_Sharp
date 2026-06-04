@@ -1,0 +1,34 @@
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\bin\Debug\Food Facts.exe.config
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\bin\Debug\Food Facts.exe
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\bin\Debug\Food Facts.pdb
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\obj\Debug\Food Facts.csprojResolveAssemblyReference.cache
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\obj\Debug\Food_Facts.MainForm.resources
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\obj\Debug\Food_Facts.NutritionForm.resources
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\obj\Debug\Food_Facts.Properties.Resources.resources
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\obj\Debug\Food Facts.csproj.GenerateResource.Cache
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\obj\Debug\Food Facts.exe
+c:\users\tony\documents\visual studio 2015\Projects\Food Facts\Food Facts\obj\Debug\Food Facts.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\bin\Debug\Food Facts.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\bin\Debug\Food Facts.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\bin\Debug\Food Facts.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food Facts.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food Facts.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food_Facts.MainForm.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food_Facts.NutritionForm.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food_Facts.Properties.Resources.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food Facts.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food Facts.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food Facts.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_5_28\Tutorial 9-6\Food Facts\Food Facts\obj\Debug\Food Facts.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\bin\Debug\Food Facts.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\bin\Debug\Food Facts.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\bin\Debug\Food Facts.pdb
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food Facts.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food Facts.exe.config
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food_Facts.MainForm.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food_Facts.NutritionForm.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food_Facts.Properties.Resources.resources
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food Facts.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food Facts.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food Facts.exe
+C:\Users\m303\Desktop\114_2_C_Sharp\115_6_04\Tutorial 9-6 - 1\Food Facts\Food Facts\obj\Debug\Food Facts.pdb

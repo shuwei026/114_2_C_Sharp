@@ -1,0 +1,97 @@
+﻿namespace Tutorial_9_3_3
+{
+    partial class MainForm
+    {
+        /// <summary>
+        /// 設計工具所需的變數。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.Button btnDeposit;
+        private System.Windows.Forms.Button btnWithdraw;
+        private System.Windows.Forms.Button btnExit;
+
+        /// <summary>
+        /// 清除任何使用中的資源。
+        /// </summary>
+        /// <param name="disposing">如果應該處置受控資源則為 true，否則為 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form 設計工具產生的程式碼
+
+        /// <summary>
+        /// 此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
+        /// 這個方法的內容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnAccount = new System.Windows.Forms.Button();
+            this.btnDeposit = new System.Windows.Forms.Button();
+            this.btnWithdraw = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.Location = new System.Drawing.Point(30, 30);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(100, 40);
+            this.btnAccount.TabIndex = 0;
+            this.btnAccount.Text = "開戶";
+            this.btnAccount.UseVisualStyleBackColor = true;
+            this.btnAccount.Click += new System.EventHandler(this.OpenAccount_Click);
+            // 
+            // btnDeposit
+            // 
+            this.btnDeposit.Location = new System.Drawing.Point(30, 85);
+            this.btnDeposit.Name = "btnDeposit";
+            this.btnDeposit.Size = new System.Drawing.Size(100, 40);
+            this.btnDeposit.TabIndex = 1;
+            this.btnDeposit.Text = "存款";
+            this.btnDeposit.UseVisualStyleBackColor = true;
+            // 
+            // btnWithdraw
+            // 
+            this.btnWithdraw.Location = new System.Drawing.Point(30, 140);
+            this.btnWithdraw.Name = "btnWithdraw";
+            this.btnWithdraw.Size = new System.Drawing.Size(100, 40);
+            this.btnWithdraw.TabIndex = 2;
+            this.btnWithdraw.Text = "提款";
+            this.btnWithdraw.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(30, 195);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(100, 40);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "離開";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAccount);
+            this.Controls.Add(this.btnDeposit);
+            this.Controls.Add(this.btnWithdraw);
+            this.Controls.Add(this.btnExit);
+            this.Name = "MainForm";
+            this.Text = "MainForm";
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+    }
+}
+

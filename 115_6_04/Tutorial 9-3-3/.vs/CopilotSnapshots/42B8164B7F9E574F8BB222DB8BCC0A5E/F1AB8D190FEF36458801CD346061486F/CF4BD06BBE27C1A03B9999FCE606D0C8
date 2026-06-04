@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Tutorial_9_3_3
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void OpenAccount_Click(object sender, EventArgs e)
+        {
+            OpenAccountForm openAccountForm = new OpenAccountForm();
+            openAccountForm.ShowDialog();
+            userCountLabel.Text = $"Total Accounts: {Account.AccountCount}";
+
+        }
+    }
+}

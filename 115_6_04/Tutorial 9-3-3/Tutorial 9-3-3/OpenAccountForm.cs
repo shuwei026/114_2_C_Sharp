@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Tutorial_9_3_3
+{
+    public partial class OpenAccountForm : Form
+    {
+        private List<BankAccount> bankAccounts;
+        public event EventHandler AccountCreated;
+        public OpenAccountForm(List<BankAccount> accounts)
+        {
+            InitializeComponent();
+            bankAccounts = accounts;
+        }
+
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            string accountNumber = txtAccount.Text.Trim();
+            string name = txtName.Text.Trim();
+            decimal initialBalance;
+
+            // validate required fields
+            if (string.IsNullOrWhiteSpace(accountNumber))
+            {
+                MessageBox.Show("請輸入帳號。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAccount.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("請輸入姓名。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtName.Focus();
+                return;
+            }
+
+            // prevent duplicate account numbers
+            if (bankAccounts != null && bankAccounts.Any(b => string.Equals(b.AccountNumber, accountNumber, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show("此帳號已存在，請使用其他帳號。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAccount.Focus();
+                return;
+            }
+
+            if (decimal.TryParse(txtInitial.Text.Trim(), out initialBalance))
+            {
+                BankAccount newAccount = new BankAccount(initialBalance)
+                {
+                    AccountNumber = accountNumber,
+                    OwnerName = name
+                };
+
+                bankAccounts.Add(newAccount);
+                // add formatted entries to listbox similar to the requested layout
+                lstAccounts.Items.Add("帳戶建立成功！");
+                lstAccounts.Items.Add($"帳號： {newAccount.AccountNumber}");
+                lstAccounts.Items.Add($"姓名： {newAccount.OwnerName}");
+                lstAccounts.Items.Add($"開戶金額： {newAccount.Balance.ToString("C")}");
+                lstAccounts.Items.Add(string.Empty);
+                MessageBox.Show("帳戶建立成功", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // notify listeners that an account was created
+                AccountCreated?.Invoke(this, EventArgs.Empty);
+
+                // clear inputs
+                txtAccount.Text = string.Empty;
+                txtName.Text = string.Empty;
+                txtInitial.Text = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Invalid initial balance. Please enter a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

@@ -1,0 +1,90 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\mutiformvarlible\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|solutionrelative:mutiformvarlible\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\mutiformvarlible\\secondform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|solutionrelative:mutiformvarlible\\secondform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\mutiformvarlible\\mutiformvarlible\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|solutionrelative:mutiformvarlible\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\mutiformvarlible\\secondform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{22FB0F8D-2759-49C7-B3B6-BC6672D3A3AA}|MutiFormVarlible\\MutiFormVarlible.csproj|solutionrelative:mutiformvarlible\\secondform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SecondForm.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\SecondForm.cs",
+              "RelativeDocumentMoniker": "MutiFormVarlible\\SecondForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\SecondForm.cs",
+              "RelativeToolTip": "MutiFormVarlible\\SecondForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T07:30:19.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\MainForm.cs",
+              "RelativeDocumentMoniker": "MutiFormVarlible\\MainForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\MainForm.cs",
+              "RelativeToolTip": "MutiFormVarlible\\MainForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T07:27:34.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SecondForm.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\SecondForm.cs",
+              "RelativeDocumentMoniker": "MutiFormVarlible\\SecondForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\SecondForm.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "MutiFormVarlible\\SecondForm.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T07:25:39.65Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\MainForm.cs",
+              "RelativeDocumentMoniker": "MutiFormVarlible\\MainForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\MutiFormVarlible\\MutiFormVarlible\\MainForm.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "MutiFormVarlible\\MainForm.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T07:23:35.648Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

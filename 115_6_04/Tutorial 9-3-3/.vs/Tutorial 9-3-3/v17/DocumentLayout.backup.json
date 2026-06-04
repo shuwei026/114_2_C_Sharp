@@ -1,0 +1,187 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\openaccountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\openaccountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\openaccountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\openaccountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\openaccountform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\openaccountform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\depoistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\depoistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\depoistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\depoistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\depoistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\depoistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_6_04\\tutorial 9-3-3\\tutorial 9-3-3\\bankaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4418292C-93BD-4458-AB1F-1588214CEDCC}|Tutorial 9-3-3\\Tutorial 9-3-3.csproj|solutionrelative:tutorial 9-3-3\\bankaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\MainForm.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\MainForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\MainForm.cs",
+              "RelativeToolTip": "Tutorial 9-3-3\\MainForm.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAMwDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T07:11:34.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainForm.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\MainForm.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\MainForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\MainForm.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "Tutorial 9-3-3\\MainForm.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:41:01.917Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OpenAccountForm.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\OpenAccountForm.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\OpenAccountForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\OpenAccountForm.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "Tutorial 9-3-3\\OpenAccountForm.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:45:23.785Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OpenAccountForm.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\OpenAccountForm.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\OpenAccountForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\OpenAccountForm.cs",
+              "RelativeToolTip": "Tutorial 9-3-3\\OpenAccountForm.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAMwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T07:21:35.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OpenAccountForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\OpenAccountForm.Designer.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\OpenAccountForm.Designer.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\OpenAccountForm.Designer.cs",
+              "RelativeToolTip": "Tutorial 9-3-3\\OpenAccountForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T07:18:09.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DepoistForm.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\DepoistForm.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\DepoistForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\DepoistForm.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "Tutorial 9-3-3\\DepoistForm.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:45:47.853Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DepoistForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\DepoistForm.Designer.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\DepoistForm.Designer.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\DepoistForm.Designer.cs",
+              "RelativeToolTip": "Tutorial 9-3-3\\DepoistForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T07:37:22.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DepoistForm.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\DepoistForm.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\DepoistForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\DepoistForm.cs",
+              "RelativeToolTip": "Tutorial 9-3-3\\DepoistForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T07:39:37.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\MainForm.Designer.cs",
+              "RelativeToolTip": "Tutorial 9-3-3\\MainForm.Designer.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvzQAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:47:46.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BankAccount.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\BankAccount.cs",
+              "RelativeDocumentMoniker": "Tutorial 9-3-3\\BankAccount.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_Sharp\\115_6_04\\Tutorial 9-3-3\\Tutorial 9-3-3\\BankAccount.cs",
+              "RelativeToolTip": "Tutorial 9-3-3\\BankAccount.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAnwDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:41:33.488Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

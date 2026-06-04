@@ -1,0 +1,164 @@
+﻿namespace Tutorial_9_3_3
+{
+    partial class OpenAccountForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblAccount;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblInitial;
+        private System.Windows.Forms.TextBox txtAccount;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtInitial;
+        private System.Windows.Forms.Button btnCreateAccount;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ListBox lstAccounts;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblAccount = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblInitial = new System.Windows.Forms.Label();
+            this.txtAccount = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtInitial = new System.Windows.Forms.TextBox();
+            this.btnCreateAccount = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.lstAccounts = new System.Windows.Forms.ListBox();
+            this.SuspendLayout();
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(20, 10);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(161, 40);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "建立帳戶";
+            // 
+            // lblAccount
+            // 
+            this.lblAccount.AutoSize = true;
+            this.lblAccount.Location = new System.Drawing.Point(30, 60);
+            this.lblAccount.Name = "lblAccount";
+            this.lblAccount.Size = new System.Drawing.Size(62, 18);
+            this.lblAccount.TabIndex = 1;
+            this.lblAccount.Text = "帳號：";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(30, 95);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(62, 18);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "姓名：";
+            // 
+            // lblInitial
+            // 
+            this.lblInitial.AutoSize = true;
+            this.lblInitial.Location = new System.Drawing.Point(30, 130);
+            this.lblInitial.Name = "lblInitial";
+            this.lblInitial.Size = new System.Drawing.Size(98, 18);
+            this.lblInitial.TabIndex = 5;
+            this.lblInitial.Text = "開戶金額：";
+            // 
+            // txtAccount
+            // 
+            this.txtAccount.Location = new System.Drawing.Point(120, 57);
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.Size = new System.Drawing.Size(200, 29);
+            this.txtAccount.TabIndex = 2;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(120, 92);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(200, 29);
+            this.txtName.TabIndex = 4;
+            // 
+            // txtInitial
+            // 
+            this.txtInitial.Location = new System.Drawing.Point(120, 127);
+            this.txtInitial.Name = "txtInitial";
+            this.txtInitial.Size = new System.Drawing.Size(200, 29);
+            this.txtInitial.TabIndex = 6;
+            // 
+            // btnCreateAccount
+            // 
+            this.btnCreateAccount.Location = new System.Drawing.Point(340, 122);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.Size = new System.Drawing.Size(100, 28);
+            this.btnCreateAccount.TabIndex = 7;
+            this.btnCreateAccount.Text = "建立帳戶";
+            this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(460, 122);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(100, 28);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.Text = "離開";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lstAccounts
+            // 
+            this.lstAccounts.FormattingEnabled = true;
+            this.lstAccounts.ItemHeight = 18;
+            this.lstAccounts.Location = new System.Drawing.Point(30, 180);
+            this.lstAccounts.Name = "lstAccounts";
+            this.lstAccounts.Size = new System.Drawing.Size(740, 238);
+            this.lstAccounts.TabIndex = 8;
+            // 
+            // OpenAccountForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.lblAccount);
+            this.Controls.Add(this.txtAccount);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.lblInitial);
+            this.Controls.Add(this.txtInitial);
+            this.Controls.Add(this.btnCreateAccount);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.lstAccounts);
+            this.Name = "OpenAccountForm";
+            this.Text = "建立帳戶";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+    }
+}

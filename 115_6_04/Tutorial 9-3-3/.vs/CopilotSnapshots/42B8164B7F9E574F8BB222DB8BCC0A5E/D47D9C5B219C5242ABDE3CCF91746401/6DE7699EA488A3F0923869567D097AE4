@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Tutorial_9_3_3
+{
+    public partial class MainForm : Form
+    {
+        private List<BankAccount> bankAccounts;
+
+        public MainForm()
+        {
+            InitializeComponent();
+            bankAccounts = new List<BankAccount>();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void OpenAccount_Click(object sender, EventArgs e)
+        {
+            OpenAccountForm openAccountForm = new OpenAccountForm(bankAccounts);
+            // update count when account created inside the dialog
+            openAccountForm.AccountCreated += (s, ev) =>
+            {
+                this.lblAccountCountValue.Text = bankAccounts.Count.ToString();
+            };
+
+            openAccountForm.ShowDialog();
+            // ensure label is up to date after dialog closes
+            this.lblAccountCountValue.Text = bankAccounts.Count.ToString();
+
+        }
+
+        // searchAccount: find a BankAccount by account number (case-insensitive)
+        public BankAccount searchAccount(string accountNumber)
+        {
+            if (string.IsNullOrWhiteSpace(accountNumber))
+                return null;
+
+            return bankAccounts.FirstOrDefault(b => string.Equals(b.AccountNumber, accountNumber.Trim(), StringComparison.OrdinalIgnoreCase));
+        }
+
+        private void btnDeposit_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnDeposit_Click(object sender, EventArgs e)
+        {
+            DepoistForm depoistForm = new DepoistForm(bankAccounts);
+            depoistForm.ShowDialog();
+        }
+    }
+}
