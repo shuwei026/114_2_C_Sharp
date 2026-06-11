@@ -1,0 +1,34 @@
+﻿namespace 員工管理
+{
+    public class Employee
+    {
+        public int IdNumber { get; set; }
+        public string Name { get; set; }
+        public string Department { get; set; }
+        public string Position { get; set; }
+
+        public Employee()
+        {
+            IdNumber = 0;
+            Name = string.Empty;
+            Department = string.Empty;
+            Position = string.Empty;
+        }
+
+        public Employee(int id, string name)
+        {
+            IdNumber = id;
+            Name = name ?? string.Empty;
+            Department = string.Empty;
+            Position = string.Empty;
+        }
+
+        public Employee(int id, string name, string dept, string pos)
+        {
+            IdNumber = id;
+            Name = name ?? string.Empty;
+            Department = dept ?? string.Empty;
+            Position = pos ?? string.Empty;
+        }
+    }
+}

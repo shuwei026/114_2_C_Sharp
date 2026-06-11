@@ -1,0 +1,189 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace 摩斯密碼
+{
+    public partial class Form1 : Form
+    {
+        // struct for morse table
+        private struct MorseEntry
+        {
+            public char Character;
+            public string Code;
+
+            public MorseEntry(char c, string code)
+            {
+                Character = c;
+                Code = code;
+            }
+        }
+
+        private List<MorseEntry> morseTable = new List<MorseEntry>();
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            this.Load += Form1_Load;
+            this.buttonConvert.Click += ButtonConvert_Click;
+            this.buttonClear.Click += ButtonClear_Click;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadMorseTable();
+            PopulateMappingListBox();
+        }
+
+        private void LoadMorseTable()
+        {
+            morseTable.Clear();
+
+            // Try several likely locations for morse_code_table.md
+            string[] candidates = new[]
+            {
+                Path.Combine(Application.StartupPath, "morse_code_table.md"),
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "morse_code_table.md"),
+                Path.Combine(Application.StartupPath, "..", "morse_code_table.md"),
+                Path.Combine(Application.StartupPath, "..", "..", "morse_code_table.md"),
+                Path.Combine(Directory.GetCurrentDirectory(), "morse_code_table.md")
+            };
+
+            string filePath = null;
+            foreach (var c in candidates)
+            {
+                try
+                {
+                    if (File.Exists(c))
+                    {
+                        filePath = Path.GetFullPath(c);
+                        break;
+                    }
+                }
+                catch
+                {
+                    // ignore invalid paths
+                }
+            }
+
+            if (filePath == null)
+            {
+                MessageBox.Show($"找不到摩斯碼表檔案：morse_code_table.md\n請將檔案放在執行目錄或專案根目錄，或設定 Copy to Output Directory。", "檔案遺失", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 必須使用 File.OpenText() 並以 StreamReader 讀取
+            using (StreamReader inputFile = File.OpenText(filePath))
+            {
+                while (!inputFile.EndOfStream)
+                {
+                    string line = inputFile.ReadLine();
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
+
+                    line = line.Trim();
+                    if (line.StartsWith("#"))
+                        continue; // allow comments
+
+                    // 支援格式: <char> <morse> 或 <char>\t<morse> 或用其他空白分隔
+                    string[] parts = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length < 2)
+                        continue;
+
+                    char key = parts[0][0];
+                    string code = parts[1];
+
+                    // normalize key to upper
+                    key = char.ToUpperInvariant(key);
+
+                    morseTable.Add(new MorseEntry(key, code));
+                }
+            }
+        }
+
+        private void PopulateMappingListBox()
+        {
+            listBoxMapping.Items.Clear();
+            foreach (var e in morseTable)
+            {
+                listBoxMapping.Items.Add($"{e.Character} -> {e.Code}");
+            }
+        }
+
+        private bool TryGetMorse(char ch, out string code)
+        {
+            code = null;
+            foreach (var e in morseTable)
+            {
+                if (e.Character == ch)
+                {
+                    code = e.Code;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void ButtonConvert_Click(object sender, EventArgs e)
+        {
+            string input = textBoxInput.Text ?? string.Empty;
+            StringBuilder full = new StringBuilder();
+            listBoxMapping.Items.Clear();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                char original = input[i];
+                if (char.IsWhiteSpace(original))
+                {
+                    // use / to represent space between words in Morse
+                    if (full.Length > 0)
+                        full.Append(" / ");
+                    listBoxMapping.Items.Add("(space) -> / (字間)");
+                    continue;
+                }
+
+                char key = char.ToUpperInvariant(original);
+                string code;
+                if (TryGetMorse(key, out code))
+                {
+                    if (full.Length > 0)
+                        full.Append(' ');
+                    full.Append(code);
+                    listBoxMapping.Items.Add($"{original} -> {code}");
+                }
+                else
+                {
+                    // 未支援字元，保留提示
+                    if (full.Length > 0)
+                        full.Append(' ');
+                    full.Append("[?]");
+                    listBoxMapping.Items.Add($"{original} -> (不支援)");
+                }
+            }
+
+            textBoxMorse.Text = full.ToString();
+
+            // 如果 mapping 目前為空（例如 morse 表尚未載入），提醒使用者
+            if (morseTable.Count == 0)
+            {
+                MessageBox.Show("摩斯碼表目前為空，無法轉換。請確認 morse_code_table.md 檔案存在且有內容。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            textBoxInput.Clear();
+            textBoxMorse.Clear();
+            listBoxMapping.Items.Clear();
+            PopulateMappingListBox();
+        }
+    }
+}

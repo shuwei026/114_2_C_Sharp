@@ -1,0 +1,11 @@
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\bin\Debug\摩斯密碼.exe.config
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\bin\Debug\摩斯密碼.exe
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\bin\Debug\摩斯密碼.pdb
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.Properties.Resources.resources
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.exe
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.pdb
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.exe.config
+C:\Users\m303\Desktop\摩斯密碼\摩斯密碼\obj\Debug\摩斯密碼.Form1.resources

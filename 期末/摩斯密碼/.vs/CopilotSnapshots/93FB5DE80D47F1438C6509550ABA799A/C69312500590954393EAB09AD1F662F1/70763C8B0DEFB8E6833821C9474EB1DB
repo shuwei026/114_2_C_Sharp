@@ -1,0 +1,233 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+
+namespace 摩斯密碼
+{
+    public partial class Form1 : Form
+    {
+        // 簡單的 struct 儲存摩斯碼表
+        private struct MorseEntry
+        {
+            public char Character;
+            public string Code;
+
+            public MorseEntry(char c, string code)
+            {
+                Character = c;
+                Code = code;
+            }
+        }
+
+        // 使用 List 儲存，不使用 Dictionary
+        private List<MorseEntry> morseTable = new List<MorseEntry>();
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            // 清除設計器可能的預設項目
+            try { listBox1.Items.Clear(); } catch { }
+
+            this.Load += Form1_Load;
+            this.buttonConvert.Click += ButtonConvert_Click;
+            this.buttonClear.Click += ButtonClear_Click;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // 載入摩斯碼表並顯示在 listbox
+            listBox1.Items.Clear();
+            LoadMorseTable();
+            PopulateMappingListBox();
+        }
+
+        // 讀取檔案並建立摩斯碼表（簡單版）
+        private void LoadMorseTable()
+        {
+            morseTable.Clear();
+
+            string filePath = Path.Combine(Application.StartupPath, "morse_code_table.md");
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("找不到 morse_code_table.md，請放到執行目錄 (bin\\Debug)。", "檔案遺失", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 必須使用 File.OpenText() 並以 StreamReader 讀取
+            using (StreamReader inputFile = File.OpenText(filePath))
+            {
+                while (!inputFile.EndOfStream)
+                {
+                    string line = inputFile.ReadLine();
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
+
+                    line = line.Trim();
+                    if (line.StartsWith("#"))
+                        continue; // 跳過註解
+
+                    // 處理 Markdown 表格行，例如 | A | .- | B | -... |
+                    if (line.Contains("|"))
+                    {
+                        string[] cols = line.Split('|');
+                        // 真正資料通常在奇數欄位：1,3,5...
+                        for (int i = 1; i + 1 < cols.Length; i += 2)
+                        {
+                            string left = CleanCell(cols[i]);
+                            string right = CleanCell(cols[i + 1]);
+
+                            if (string.IsNullOrWhiteSpace(left) || string.IsNullOrWhiteSpace(right))
+                                continue;
+
+                            // 處理特殊名稱，例如 space, comma, period
+                            char keyChar;
+                            string low = left.ToLower().Trim();
+                            if (low == "space" || low == "*space*")
+                                keyChar = ' ';
+                            else if (low == "comma")
+                                keyChar = ',';
+                            else if (low == "period" || low == "dot")
+                                keyChar = '.';
+                            else if (low == "?")
+                                keyChar = '?';
+                            else
+                                keyChar = left.Trim()[0];
+
+                            keyChar = char.ToUpperInvariant(keyChar);
+
+                            // 加入表格，不重複
+                            bool exists = false;
+                            foreach (var e in morseTable)
+                            {
+                                if (e.Character == keyChar)
+                                {
+                                    exists = true;
+                                    break;
+                                }
+                            }
+                            if (!exists)
+                                morseTable.Add(new MorseEntry(keyChar, right));
+                        }
+
+                        continue;
+                    }
+
+                    // 也支援簡單的格式：A .-
+                    string[] parts = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length >= 2)
+                    {
+                        string left = CleanCell(parts[0]);
+                        string right = CleanCell(parts[1]);
+                        if (!string.IsNullOrEmpty(left) && !string.IsNullOrEmpty(right))
+                        {
+                            char key = char.ToUpperInvariant(left[0]);
+                            bool exists = false;
+                            foreach (var e in morseTable)
+                            {
+                                if (e.Character == key)
+                                {
+                                    exists = true;
+                                    break;
+                                }
+                            }
+                            if (!exists)
+                                morseTable.Add(new MorseEntry(key, right));
+                        }
+                    }
+                }
+            }
+
+            // 依字母排序（選用）
+            morseTable.Sort((a, b) => a.Character.CompareTo(b.Character));
+        }
+
+        // 小工具：去除反引號或星號
+        private static string CleanCell(string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+                return string.Empty;
+            s = s.Trim();
+            if (s.StartsWith("`") && s.EndsWith("`") && s.Length >= 2)
+                s = s.Substring(1, s.Length - 2).Trim();
+            if (s.StartsWith("*") && s.EndsWith("*") && s.Length >= 2)
+                s = s.Substring(1, s.Length - 2).Trim();
+            return s;
+        }
+
+        private void PopulateMappingListBox()
+        {
+            listBox1.Items.Clear();
+            foreach (var e in morseTable)
+            {
+                listBox1.Items.Add($"{e.Character} -> {e.Code}");
+            }
+        }
+
+        private bool TryGetMorse(char ch, out string code)
+        {
+            code = null;
+            char up = char.ToUpperInvariant(ch);
+            foreach (var e in morseTable)
+            {
+                if (e.Character == up)
+                {
+                    code = e.Code;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void ButtonConvert_Click(object sender, EventArgs e)
+        {
+            string input = textBoxInput.Text ?? string.Empty;
+            StringBuilder full = new StringBuilder();
+            listBox1.Items.Clear();
+
+            foreach (char ch in input)
+            {
+                if (char.IsWhiteSpace(ch))
+                {
+                    if (full.Length > 0)
+                        full.Append(" / ");
+                    listBox1.Items.Add("(space) -> /");
+                    continue;
+                }
+
+                string code;
+                if (TryGetMorse(ch, out code))
+                {
+                    if (full.Length > 0 && full[full.Length - 1] != ' ')
+                        full.Append(' ');
+                    full.Append(code);
+                    listBox1.Items.Add($"{ch} -> {code}");
+                }
+                else
+                {
+                    if (full.Length > 0 && full[full.Length - 1] != ' ')
+                        full.Append(' ');
+                    full.Append("[?]");
+                    listBox1.Items.Add($"{ch} -> (不支援)");
+                }
+            }
+
+            textBoxMorse.Text = full.ToString();
+
+            if (morseTable.Count == 0)
+            {
+                MessageBox.Show("摩斯碼表為空，請確認 morse_code_table.md 在執行目錄。", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            textBoxInput.Clear();
+            textBoxMorse.Clear();
+            listBox1.Items.Clear();
+            PopulateMappingListBox();
+        }
+    }
+}

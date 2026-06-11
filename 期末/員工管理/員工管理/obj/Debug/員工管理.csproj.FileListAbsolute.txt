@@ -1,0 +1,10 @@
+C:\Users\m303\Desktop\員工管理\員工管理\bin\Debug\員工管理.exe.config
+C:\Users\m303\Desktop\員工管理\員工管理\bin\Debug\員工管理.exe
+C:\Users\m303\Desktop\員工管理\員工管理\bin\Debug\員工管理.pdb
+C:\Users\m303\Desktop\員工管理\員工管理\obj\Debug\員工管理.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\員工管理\員工管理\obj\Debug\員工管理.Properties.Resources.resources
+C:\Users\m303\Desktop\員工管理\員工管理\obj\Debug\員工管理.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\員工管理\員工管理\obj\Debug\員工管理.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\員工管理\員工管理\obj\Debug\員工管理.exe
+C:\Users\m303\Desktop\員工管理\員工管理\obj\Debug\員工管理.pdb
+C:\Users\m303\Desktop\員工管理\員工管理\obj\Debug\員工管理.exe.config

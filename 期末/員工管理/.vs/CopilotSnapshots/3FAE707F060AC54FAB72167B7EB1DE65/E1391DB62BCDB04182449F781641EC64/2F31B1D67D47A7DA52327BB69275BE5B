@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Microsoft.VisualBasic;
+
+namespace 員工管理
+{
+    public partial class Form1 : Form
+    {
+        private List<Employee> employees = new List<Employee>();
+
+        public Form1()
+        {
+            InitializeComponent();
+            // 初始化事件
+            this.btnAdd.Click += BtnAdd_Click;
+            this.btnDelete.Click += BtnDelete_Click;
+            this.btnEdit.Click += BtnEdit_Click;
+            this.btnSearch.Click += BtnSearch_Click;
+            this.btnExit.Click += BtnExit_Click;
+            RefreshList();
+        }
+
+        private void RefreshList()
+        {
+            lstEmployees.Items.Clear();
+            foreach (var e in employees)
+            {
+                lstEmployees.Items.Add($"{e.IdNumber}\t{e.Name}");
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            string idText = Interaction.InputBox("請輸入員工編號:", "新增員工");
+            if (string.IsNullOrWhiteSpace(idText)) return;
+            if (!int.TryParse(idText, out int id))
+            {
+                MessageBox.Show("員工編號必須為數字", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (employees.Any(x => x.IdNumber == id))
+            {
+                MessageBox.Show("此員工編號已存在", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string name = Interaction.InputBox("請輸入姓名:", "新增員工");
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("姓名不可為空", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string dept = Interaction.InputBox("請輸入部門 (可留空):", "新增員工");
+            string pos = Interaction.InputBox("請輸入職稱 (可留空):", "新增員工");
+
+            var emp = new Employee(id, name, dept ?? string.Empty, pos ?? string.Empty);
+            employees.Add(emp);
+            RefreshList();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            Employee target = null;
+            if (lstEmployees.SelectedIndex >= 0 && lstEmployees.SelectedIndex < employees.Count)
+            {
+                target = employees[lstEmployees.SelectedIndex];
+            }
+            else
+            {
+                string idText = Interaction.InputBox("請輸入要刪除的員工編號:", "刪除員工");
+                if (string.IsNullOrWhiteSpace(idText)) return;
+                if (!int.TryParse(idText, out int id))
+                {
+                    MessageBox.Show("員工編號必須為數字", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                target = employees.FirstOrDefault(x => x.IdNumber == id);
+            }
+
+            if (target == null)
+            {
+                MessageBox.Show("查無此員工編號", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var dr = MessageBox.Show($"確定要刪除 員工: {target.Name} 嗎?", "確認刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                employees.Remove(target);
+                RefreshList();
+            }
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            Employee target = null;
+            if (lstEmployees.SelectedIndex >= 0 && lstEmployees.SelectedIndex < employees.Count)
+            {
+                target = employees[lstEmployees.SelectedIndex];
+            }
+            else
+            {
+                string idText = Interaction.InputBox("請輸入要修改的員工編號:", "修改員工");
+                if (string.IsNullOrWhiteSpace(idText)) return;
+                if (!int.TryParse(idText, out int id))
+                {
+                    MessageBox.Show("員工編號必須為數字", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                target = employees.FirstOrDefault(x => x.IdNumber == id);
+            }
+
+            if (target == null)
+            {
+                MessageBox.Show("查無此員工編號", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string name = Interaction.InputBox("姓名:", "修改員工", target.Name);
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("姓名不可為空", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string dept = Interaction.InputBox("部門:", "修改員工", target.Department);
+            string pos = Interaction.InputBox("職稱:", "修改員工", target.Position);
+
+            target.Name = name;
+            target.Department = dept ?? string.Empty;
+            target.Position = pos ?? string.Empty;
+            RefreshList();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            string keyword = Interaction.InputBox("請輸入查詢關鍵字 (員工編號或姓名):", "查詢員工");
+            if (string.IsNullOrWhiteSpace(keyword)) return;
+
+            List<Employee> results = new List<Employee>();
+            if (int.TryParse(keyword, out int id))
+            {
+                var found = employees.Where(x => x.IdNumber == id).ToList();
+                results.AddRange(found);
+            }
+            // 名稱模糊查詢
+            results.AddRange(employees.Where(x => x.Name.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0));
+            results = results.Distinct().ToList();
+
+            if (!results.Any())
+            {
+                MessageBox.Show("查無符合資料", "查詢結果", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var sb = new StringBuilder();
+            sb.AppendLine("編號\t姓名\t部門\t職稱");
+            foreach (var r in results)
+            {
+                sb.AppendLine($"{r.IdNumber}\t{r.Name}\t{r.Department}\t{r.Position}");
+            }
+            MessageBox.Show(sb.ToString(), "查詢結果");
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}

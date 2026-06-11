@@ -1,0 +1,4 @@
+﻿1001|Alice Chen|Sales|Manager
+1002|Bob Lin|IT|senior engineer
+1003|alex chen|HR|Specialist
+1004|David Wu|Accounting|Clerk
